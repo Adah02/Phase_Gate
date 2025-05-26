@@ -5,24 +5,25 @@ public class StudentsResults{
 
 	double[] total = new double[2];
 	double[] average = new double[2]; 
-	int[] position = new int[2];
-	
+	double[] position = new double[2];
 	
 	for(int index = 0; index < total.length; index++){
 		for (int count = 0; count < scores[0].length; count++){
 			total[index] += scores[index][count];
 		}
 	}
-	System.out.print(Arrays.toString(total));
 	return total;
 
 	for(int counter = 0; counter < total.length; counter++){
-		average[counter] += (total[counter] / scores.length);
+		average[counter] += (total[counter] / scores[0].length);
 	}
 	return average;
 
-	for (int j = 0; j < total.length; j++){
-		average[j] += (total[j] / scores.length);
+	for (int j = 0; j < average.length; j++){
+		
+		if (average[0] > average[1]){
+		
+		}
 	}
 	return position;
 	}
