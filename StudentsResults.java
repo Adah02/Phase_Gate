@@ -15,10 +15,10 @@ public class StudentsResults{
 	return total;
 
 	for(int counter = 0; counter < total.length; counter++){
-		average[counter] += (total[counter] / scores[0].length);
+		average[counter] = (total[counter] / scores[counter].length);
 	}
 	return average;
-
+/*
 	for (int j = 0; j < average.length; j++){
 		
 		if (average[0] > average[1]){
@@ -27,6 +27,6 @@ public class StudentsResults{
 	}
 	return position;
 	}
-
+*/
 
 }

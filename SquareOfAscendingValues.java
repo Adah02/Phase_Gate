@@ -9,7 +9,7 @@ public class SquareOfAscendingValues{
 	for (int index = 0; index < Integer.MAX_VALUE; index++){
 		for (int count = 0; count < scores.length; count++){
 			if (index == scores[count]){
-			squares[counter] += (Math.pow(scores[count],2));
+			squares[counter] = (Math.pow(scores[count],2));
 			counter += 1;
 			}
 		}

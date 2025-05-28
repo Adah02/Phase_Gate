@@ -4,7 +4,7 @@ public class SquareOfIntegers{
 
 	SquareOfAscendingValues arrays = new SquareOfAscendingValues();
 
-	double[] scores = {9,2,7,0,5};
+	int[] scores = {9,2,7,0,5};
 
 	arrays.squareOfNumberIn(scores);
 	}
