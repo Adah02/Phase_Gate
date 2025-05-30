@@ -5,7 +5,7 @@ public class LetterDetectorProgram {
 	int counter = 0;
 
 	for (int index = 0; index < sentence.length(); index++){
-		if (userChoice == sentence.charAt(index)){
+		if (userChoice.equalsToIgnoreCase(sentence.charAt(index))){
 			counter += 1;
 		}
 	}

@@ -12,8 +12,9 @@ public class SentenceReverse {
 		characterCheck[index] = sentence.charAt(index);
 		for (int count = 0; count < sentence.length(); count++){
 			if (userInput == sentence.charAt(count)){
-			characterCheck[0] = sentence.charAt(index);
-			characterCheck[index] = firstAlpha;
+			characterCheck[0] = sentence.charAt(count);
+			characterCheck[count] = firstAlpha;
+			break;
 			}
 		}
 	}	
@@ -21,7 +22,6 @@ public class SentenceReverse {
 	for (int counter = 0; counter < characterCheck.length; counter++){
 		refinedSentence += characterCheck[counter];
 	}
-	System.out.print(Arrays.toString(characterCheck));
 	return refinedSentence;
 	}
 	
