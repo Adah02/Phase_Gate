@@ -22,6 +22,7 @@ public class SentenceReverse {
 	for (int counter = 0; counter < characterCheck.length; counter++){
 		refinedSentence += characterCheck[counter];
 	}
+
 	return refinedSentence;
 	}
 	
