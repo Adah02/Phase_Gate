@@ -24,6 +24,13 @@ public class CreditCardValidator {
 	public static String myCardNumber(String myCardNumber){
 	String myNumber = myCardNumber.replaceAll("\\s+", "");
 
+	if (myNumber.length() <13 || myNumber.length() > 16) myNumber = "Invalid";
+	for (int index = 0; index < myNumber.length(); index++){
+		if (myNumber.charAt(index) < '0' || myNumber.charAt(index) > '9' &&  myNumber.charAt(index) != ' '){
+			myNumber = "Invalid";
+		} 
+		if (myNumber == "Invalid") break;
+	}
 	return myNumber;
 	}
 
@@ -31,7 +38,13 @@ public class CreditCardValidator {
 	String cardType = "";
 	String cardNumber = myCardNumber.replaceAll("\\s+", "");
 
-	if (cardNumber.length() >= 13 && cardNumber.length() <= 16){
+	for (int index = 0; index < cardNumber.length(); index++){
+		if (cardNumber.charAt(index) < '0' || cardNumber.charAt(index) > '9' &&  cardNumber.charAt(index) != ' '){
+			cardType = "Invalid";
+			break;
+			}
+		}
+	if (cardNumber.length() >= 13 && cardNumber.length() <= 16 && cardType != "Invalid"){
 		if (cardNumber.charAt(0) == '4'){
 			cardType = "VisaCard";
 		} else if (cardNumber.charAt(0) == '5'){
