@@ -22,6 +22,13 @@ function cardValidity(cardNumber){
 function cardNumberVerifier(myCardNumber){
 	let myNumber = myCardNumber.replaceAll(" ", "");
 
+	if (myNumber.length <13 || myNumber.length > 16) myNumber = "Invalid";
+	for (let index = 0; index < myNumber.length; index++){
+		if (myNumber.charAt(index) < '0' || myNumber.charAt(index) > '9' &&  myNumber.charAt(index) != ' '){
+			myNumber = "Invalid";
+		} 
+		if (myNumber == "Invalid") break;
+	}
 	return myNumber
 	};
 
@@ -38,7 +45,13 @@ function creditCardType(myCardNumber){
 	let cardType = "";
 	let cardNumber = myCardNumber.replaceAll(" ", "");
 
-	if (cardNumber.length >= 13 && cardNumber.length <= 16){
+	for (let index = 0; index < cardNumber.length; index++){
+		if (cardNumber.charAt(index) < '0' || cardNumber.charAt(index) > '9' &&  cardNumber.charAt(index) != ' '){
+			cardType = "Invalid";
+			break;
+			}
+		}
+	if (cardNumber.length >= 13 && cardNumber.length <= 16 && cardType != "Invalid"){
 		if (cardNumber.charAt(0) == '4'){
 			cardType = "VisaCard";
 		} else if (cardNumber.charAt(0) == '5'){
