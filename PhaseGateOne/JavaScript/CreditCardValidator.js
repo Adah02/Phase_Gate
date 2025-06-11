@@ -40,7 +40,6 @@ function cardNumberLength(myCardNumber){
 	return digitLength;
 	};
 	
-
 function creditCardType(myCardNumber){
 	let cardType = "";
 	let cardNumber = myCardNumber.replaceAll(" ", "");

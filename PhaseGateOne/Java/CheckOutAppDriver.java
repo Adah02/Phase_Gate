@@ -59,8 +59,16 @@ public class CheckOutAppDriver {
 						purchase = false;
 						}
 				}
-		
 		}
+	System.out.print("How much did the customer pay? : ");
+	double amountPaid = input.nextDouble(); 
+
+	System.out.print("Enter customer's name: ");
+	String amountPaid = input.nextLine(); 
+
+	String cashier = """
+		Cashier on duty;-
+		1 > Sikiru 
 
 	}
 }

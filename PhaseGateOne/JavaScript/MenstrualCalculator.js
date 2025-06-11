@@ -19,7 +19,7 @@ function nextFlowDate(monthOfFlow, dayOfFlow, flowLength, nextFlow){
 function ovulationPeriod(monthOfFlow, dayOfFlow){
 	const menstDate = LocalDate.of(2025, monthOfFlow, dayOfFlow);
 	let ovulation = dayOfFlow + 14;
-	let daysLeft = menstDate.lengthOfMonth() - dayOfFlow;
+	let daysLeft = menstDate.lengthOfMonth - dayOfFlow;
 	if (ovulation > daysLeft){
 		ovulation = 14 - daysLeft;
 		monthOfFlow += 1;

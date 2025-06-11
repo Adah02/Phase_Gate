@@ -62,4 +62,20 @@ public class CheckOutApp {
 	return totalToPay;
 	}
 
+	public static String balance (){
+
+	}
+	
+	public static String storeAddress (){
+
+		String StoreDetails = """
+	SEMICOLON STORES
+	MAIN BRANCH
+	LOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.
+	TEL: 03293828343
+	""";
+
+	return StoreDetails;
+	}
+
 }
