@@ -9,7 +9,7 @@ public class MbtiPersonality {
 	PersonalityTestFunctions quiz = new PersonalityTestFunctions();
 
 	System.out.println("what is your name?");
-	String yourName = input.nextLine();
+	String myName = input.nextLine();
 
 	String[] a = { "A. Comfortable with walking to someone to start conversations", 
 				"A. Not moved by past mistakes",
@@ -36,7 +36,7 @@ public class MbtiPersonality {
 	String[] b = {"B. Love being by yourself always", 
 				"B. Little mistakes causes doubt in your abilities",
 				"B. Allow feelings drive decision makings",
-				"B. Not bothered by other's achievements",
+				"B. Not bothered by efforts of others",
 				"B. Highly productive alone", 
 				"B. Prioritizes making good impressions",
 				"B. Worried for negative outcomes",
@@ -62,8 +62,9 @@ public class MbtiPersonality {
 	
 	int introvert = 0;   int extrovert = 0; 		int sensing = 0;   int intuitive = 0;
 	int thinking = 0; 	int feeling = 0;		int judging = 0;   int perception = 0;
-
-	String choicesInMind = String.format("Number of A selected: %d%nNumber of B selected: %d%n", sensing, intuitive);
+	
+	String choicesInEnergy = String.format("Number of A selected: %d%nNumber of B selected: %d%n", extrovert, introvert);
+	String choicesInMind = String.format("Number of A selected: %d%nNumber of B selected: %d%n", intuitive, sensing);
 	String choicesInNature = String.format("Number of A selected: %d%nNumber of B selected: %d%n", thinking, feeling);
 	String choicesInTactics = String.format("Number of A selected: %d%nNumber of B selected: %d%n", judging, perception);
 	
@@ -118,7 +119,37 @@ public class MbtiPersonality {
 		optionA == (a[19])  && choice.equalsIgnoreCase("b")){ perception += 1;	tactics.add(optionB);	}
 			}
 		}
-	System.out.print(quiz.energyDetails(energy, introvert, extrovert));
 
+	System.out.printf("%n Hello %s, you selected the following;- %n",quiz.usersName(myName));
+	System.out.println(quiz.energyDetails(energy, introvert, extrovert));
+	System.out.println(quiz.mindDetails(mind, sensing, intuitive));
+	System.out.println(quiz.natureDetails(nature, thinking, feeling));
+	System.out.println(quiz.tacticsDetails(tactics, judging, perception));
+	System.out.println("Your PersonalityType: " + quiz.personalityType(introvert,  extrovert, sensing, intuitive, thinking, feeling, judging, perception));
+
+	String type = quiz.personalityType(introvert, extrovert, sensing, intuitive, thinking, feeling, judging, perception);
+
+		String trait = "";
+	
+		if (type == "ENTJ"){ 	trait = quiz.commander();
+		} else if (type == "INTP"){	trait = quiz.logician();
+		} else if (type == "INTJ"){	trait = quiz.architect();
+		} else if (type == "ENTP"){	trait = quiz.debater();
+		} else if (type == "ISFP"){	trait = quiz.adventurer();
+		} else if (type == "ISTP"){	trait = quiz.virtuoso();
+		} else if (type == "ESTP"){	trait = quiz.entrepreneur();
+		} else if (type == "ESFP"){	trait = quiz.entertainer();
+		} else if (type == "INFJ"){	trait = quiz.advocate();
+		} else if (type == "INFP"){	trait = quiz.mediator();
+		} else if (type == "ENFJ"){	trait = quiz.protagonist();
+		} else if (type == "ENFP"){	trait = quiz.campaigner();
+		} else if (type == "ISTJ"){	trait = quiz.logistician();
+		} else if (type == "ESTJ"){	trait = quiz.executive();
+		} else if (type == "ISFJ"){	trait = quiz.defender();
+		} else if (type == "ESFJ"){	trait = quiz.consul();  }
+
+	System.out.println(trait);
+
+	
 	}
 }

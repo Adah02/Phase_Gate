@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class PersonalityTestFunctions {
 
-	public static String personalityType (int introvert,  int extrovert, int sensing, int intuitive, int thinking, int feeling, int judging, int perception){
+	public static String personalityType(int introvert,  int extrovert, int sensing, int intuitive, int thinking, int feeling, int judging, int perception){
 	
 	String personality = "";
 
@@ -35,8 +35,45 @@ public class PersonalityTestFunctions {
 	return choicesInMind;
 	}
 
-	public static String commander(){
+	public static String natureDetails(ArrayList<String> nature, int thinking, int feeling){
+		
+		String choicesInNature = "";
 
+		for (String item : nature){
+		choicesInNature += String.format("%s%n", item);
+		}
+		choicesInNature += String.format("Number of A selected: %d%nNumber of B selected: %d%n", thinking, feeling);
+	return choicesInNature;
+	}
+
+	public static String tacticsDetails(ArrayList<String> tactics, int judging, int perception){
+		
+		String choicesInTactics = "";
+
+		for (String item : tactics){
+		choicesInTactics += String.format("%s%n", item);
+		}
+		choicesInTactics += String.format("Number of A selected: %d%nNumber of B selected: %d%n", judging, perception);
+	return choicesInTactics;
+	}
+
+	public static String usersName(String myName){
+
+	String refinedName = "";
+	for (int index = 0; index < myName.length(); index++){
+
+		if (myName.charAt(index) >= 'a' && myName.charAt(index) <= 'z' || 
+		myName.charAt(index) >= 'A' && myName.charAt(index) <= 'Z'){
+			if (index > 1 && myName.charAt(index - 1) == ' '){
+				refinedName += String.valueOf(myName.charAt(index)).toUpperCase();
+			} else { 	refinedName += myName.charAt(index);	}
+		}else if (myName.charAt(index) == ' ' ){ refinedName += myName.charAt(index);
+		} else { myName.replaceAll(String.valueOf(myName.charAt(index)), "");  }
+	}
+	return refinedName;
+	}
+
+	public static String commander(){
 	String entj = """
 			ENTJ (Commander) is a personality type with the Extraverted, Intuitive, Thinking, and Judging traits.
 			They are decisive people who love momentum and accomplishment. They gather information to construct their
@@ -49,9 +86,8 @@ public class PersonalityTestFunctions {
 			""";
 	return entj;
 	}
-
+	
 	public static String logician(){
-
 	String intp = """
 			INTP (Logician) is a personality type with the Introverted, Intuitive, Thinking, and Prospecting traits. These flexible 
 			thinkers enjoy taking an unconventional approach to many aspects of life. They often seek out unlikely paths, mixing 
@@ -65,8 +101,7 @@ public class PersonalityTestFunctions {
 	return intp;
 	}
 
-	public static String architect(){
-
+	public static String architect (){
 	String intj = """
 			INTJ (Architect) is a personality type with the Introverted, Intuitive, Thinking, and Judging traits. These thoughtful 
 			tacticians love perfecting the details of life, applying creativity and rationality to everything they do. Their inner 
@@ -79,10 +114,9 @@ public class PersonalityTestFunctions {
 			""";
 	return intj;
 	}
-	
-	public static String debater(){
 
-		String entp = """
+	public static String debater (){
+	String entp = """
 			ENTP (Debater) is a personality type with the Extraverted, Intuitive, Thinking, and Prospecting traits. They tend to
 			be bold and creative, deconstructing and rebuilding ideas with great mental agility. They pursue their goals vigorously 
 			despite any resistance they might encounter.
@@ -96,9 +130,8 @@ public class PersonalityTestFunctions {
 	return entp;
 	}
 
-	public static String adventurer(){
-
-		String isfp = """
+	public static String adventurer (){
+	String isfp = """
 			ISFP (Adventurer) is a personality type with the Introverted, Observant, Feeling, and Prospecting traits. They tend to 
 			have open minds, approaching life, new experiences, and people with grounded warmth. Their ability to stay in the 
 			moment helps them uncover exciting potentials.
@@ -114,9 +147,8 @@ public class PersonalityTestFunctions {
 	return isfp;
 	}
 
-	public static String virtuoso(){
-
-		String istp = """
+	public static String virtuoso (){
+	String istp = """
 			ISTP (Virtuoso) is a personality type with the Introverted, Observant, Thinking, and Prospecting traits. They tend to have 
 			an individualistic mindset, pursuing goals without needing much external connection. They engage in life with inquisitiveness 
 			and personal skill, varying their approach as needed.
@@ -130,12 +162,11 @@ public class PersonalityTestFunctions {
 			projects. And as they do so, they usually prefer to work at their own pace, on their own terms, and without unnecessary 
 			interruptions.
 			""";
-	return istp;
-	}
+		return istp;
+		}
 
-	public static String entrepreneur(){
-
-		String estp = """
+	public static String entrepreneur (){
+	String estp = """
 			ESTP (Entrepreneur) is a personality type with the Extraverted, Observant, Thinking, and Prospecting traits. They tend to 
 			be energetic and action-oriented, deftly navigating whatever is in front of them. They love uncovering life’s opportunities, 
 			whether socializing with others or in more personal pursuits.
@@ -152,8 +183,7 @@ public class PersonalityTestFunctions {
 	return estp;
 	}
 
-	public static String entertainer(){
-
+	public static String entertainer (){
 	String esfp = """
 			ESFP (Entertainer) is a personality type with the Extraverted, Observant, Feeling, and Prospecting traits. These people love 
 			vibrant experiences, engaging in life eagerly and taking pleasure in discovering the unknown. They can be very social, often 
@@ -171,9 +201,8 @@ public class PersonalityTestFunctions {
 	return esfp;
 	}
 
-	public static String advocate(){
-
-		String infj = """
+	public static String advocate (){
+	String infj = """
 			INFJ (Advocate) is a personality type with the Introverted, Intuitive, Feeling, and Judging traits. They tend to approach life with deep 
 			thoughtfulness and imagination. Their inner vision, personal values, and a quiet, principled version of humanism guide them in all things.
 			Idealistic and principled, people with the INFJ personality type (Advocates) aren’t content to coast through life – they want to stand up 
@@ -191,9 +220,8 @@ public class PersonalityTestFunctions {
 	return infj;
 	}
 
-	public static String mediator(){
-
-		String infp = """
+	public static String mediator (){
+	String infp = """
 			INFP (Mediator) is a personality type with the Introverted, Intuitive, Feeling, and Prospecting traits. These rare personality types 
 			tend to be quiet, open-minded, and imaginative, and they apply a caring and creative approach to everything they do.
 			Although they may seem quiet or unassuming, people with the INFP personality type (Mediators) have vibrant, passionate inner 
@@ -209,9 +237,8 @@ public class PersonalityTestFunctions {
 	return infp;
 	}
 
-	public static String protagonist(){
-
-		String enfj = """
+	public static String protagonist (){
+	String enfj = """
 			ENFJ (Protagonist) is a personality type with the Extraverted, Intuitive, Feeling, and Judging traits. These warm, forthright 
 			types love helping others, and they tend to have strong ideas and values. They back their perspective with the creative 
 			energy to achieve their goals.
@@ -230,9 +257,8 @@ public class PersonalityTestFunctions {
 	return enfj;
 	}
 
-	public static String campaigner(){
-
-		String enfp = """
+	public static String campaigner (){
+	String enfp = """
 			ENFP (Campaigner) is a personality type with the Extraverted, Intuitive, Feeling, and Prospecting traits. These people 
 			tend to embrace big ideas and actions that reflect their sense of hope and goodwill toward others. Their vibrant energy 
 			can flow in many directions.
@@ -252,9 +278,8 @@ public class PersonalityTestFunctions {
 	return enfp;
 	}
 
-	public static String logistician(){
-
-		String istj = """
+	public static String logistician (){
+	String istj = """
 			ISTJ (Logistician) is a personality type with the Introverted, Observant, Thinking, and Judging traits. These people tend to be 
 			reserved yet willful, with a rational outlook on life. They compose their actions carefully and carry them out with methodical 
 			purpose.
@@ -269,9 +294,8 @@ public class PersonalityTestFunctions {
 	return istj;
 	}
 
-	public static String executive(){
-
-		String estj = """
+	public static String executive (){
+	String estj = """
 			ESTJ (Executive) is a personality type with the Extraverted, Observant, Thinking, and Judging traits. They possess great fortitude, 
 			emphatically following their own sensible judgment. They often serve as a stabilizing force among others, able to offer solid 
 			direction amid adversity.
@@ -291,9 +315,8 @@ public class PersonalityTestFunctions {
 	return estj;
 	}
 
-	public static String defender(){
-
-		String isfj = """
+	public static String defender (){
+	String isfj = """
 			ISFJ (Defender) is a personality type with the Introverted, Observant, Feeling, and Judging traits. These people tend to be 
 			warm and unassuming in their own steady way. They’re efficient and responsible, giving careful attention to practical 
 			details in their daily lives.
@@ -310,9 +333,8 @@ public class PersonalityTestFunctions {
 	return isfj;
 	}
 
-	public static String consul(){
-
-		String esfj = """
+	public static String consul (){
+	String esfj = """
 			ESFJ (Consul) is a personality type with the Extraverted, Observant, Feeling, and Judging traits. They are attentive and 
 			people-focused, and they enjoy taking part in their social community. Their achievements are guided by decisive values, 
 			and they willingly offer guidance to others.
@@ -332,30 +354,5 @@ public class PersonalityTestFunctions {
 	return esfj;
 	}
 
-	public static String personalityTrait(){
-
-		String type = personalityType(introvert, extrovert, sensing, intuitive, thinking, feeling, judging, perception);
-
-		String trait = "";
-	
-		if (type == "ENTJ"){ 	trait = commander();
-		} else if (type == "INTP"){	trait = logician();
-		} else if (type == "INTJ"){	trait = architect();
-		} else if (type == "ENTP"){	trait = debater();
-		} else if (type == "ISFP"){	trait = adventurer();
-		} else if (type == "ISTP"){	trait = virtuoso();
-		} else if (type == "ESTP"){	trait = entrepreneur();
-		} else if (type == "ESFP"){	trait = entertainer();
-		} else if (type == "INFJ"){	trait = advocate();
-		} else if (type == "INFP"){	trait = mediator();
-		} else if (type == "ENFJ"){	trait = protagonist();
-		} else if (type == "ENFP"){	trait = campaigner();
-		} else if (type == "ISTJ"){	trait = logistician();
-		} else if (type == "ESTJ"){	trait = executive();
-		} else if (type == "ISFJ"){	trait = defender();
-		} else if (type == "ESFJ"){	trait = consul();  }
-
-	return trait;
-	}
-
 }
+

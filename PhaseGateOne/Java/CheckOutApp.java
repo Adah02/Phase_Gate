@@ -2,15 +2,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class CheckOutApp {
 
-	public static double totalPurchaseAmount (ArrayList<Double> productPrice, ArrayList<Double> productQuantity){
-	double purchaseAmount = 0;
-
-	for (int index = 0; index < productPrice.size(); index++){
-		purchaseAmount += (productPrice.get(index) * productQuantity.get(index));
-		}
-	return purchaseAmount;
-	}
-
 	public static double valueAddedTax(ArrayList<Double> productPrice, ArrayList<Double> productQuantity){
 
 	double total = 0;

@@ -8,8 +8,6 @@ public class CheckOutAppDriver {
 
 	CheckOutApp quiz = new CheckOutApp();
 
-
-
 	String availableProducts = 
 """
 ===================================
@@ -70,11 +68,8 @@ public class CheckOutAppDriver {
 				} 
 			}
 		}
-	System.out.println("How much did the customer pay? ");
-	double amountPaid = input.nextDouble(); 
-
 	System.out.println("Enter customer's name: ");
-	String customersName = input.next(); 
+	String customersName = input.next(); 	
 
 	String cashiers = """
 		Cashier on duty;-
@@ -140,7 +135,60 @@ public class CheckOutAppDriver {
 		for (int count = 0; count < productPrice.size(); count++ ){
 		System.out.printf("%15s \t%d\t%.2f \t%.2f%n", purchasedproducts.get(count), productQuantity.get(count), productPrice.get(count), totalProductPrice.get(count));
 		}
+		System.out.println(dashes);		double purchaseAmount = 0;
+
+		for (int index = 0; index < productPrice.size(); index++){
+		purchaseAmount += (productPrice.get(index) * productQuantity.get(index));
+		}
+		System.out.printf(" \t Sub-Total: %.2f%n", purchaseAmount);
+
+		double discountPercentage = 3.8;
+		final double PERCENTAGE = 100;
+		double discount = (purchaseAmount / PERCENTAGE) * discountPercentage;
+		System.out.printf(" \t Discount:  %.2f%n", discount);
+
+		double taxPercentage = 7.5;
+		double vat = (purchaseAmount / PERCENTAGE) * taxPercentage;
+		System.out.printf(" \t VAT@ 7.5%%:  %.2f%n", vat);
+
 		System.out.println(dashes);
-		System.out.println(" \t Sub-Total: " );
+		double billTotal = (purchaseAmount + vat) - discount;
+		System.out.printf(" \t Bill Total: %.2f%n", billTotal);
+
+		System.out.println(dashes);
+		System.out.printf(" \t THIS IS NOT A RECEIPT, KINDLY PAY %.2f%n", billTotal);
+		System.out.println(dashes);
+		
+		System.out.println("");
+
+			System.out.println("How much did the customer pay? ");
+			double amountPaid = input.nextDouble(); 
+
+		System.out.println(dashes);
+		System.out.println(quiz.storeAddress());
+		System.out.println("Date: ");
+		System.out.println("Cashier: " + cashiersName);
+		System.out.println("Customers Name: " +customersName);
+		System.out.println(dashes);
+		System.out.printf("%15s %8s  %11s %15s%n", "ITEM", "QTY", "PRICE", "TOTAL(NGN)");
+		System.out.println(dashes);
+
+			for (int count = 0; count < productPrice.size(); count++ ){
+			System.out.printf("%15s \t%d\t%.2f \t%.2f%n", purchasedproducts.get(count), productQuantity.get(count), productPrice.get(count), totalProductPrice.get(count));
+			}
+		System.out.println(dashes);
+		System.out.printf(" \t Sub-Total: %.2f%n", purchaseAmount);
+		System.out.printf(" \t Discount:  %.2f%n", discount);
+		System.out.printf(" \t VAT@ 7.5%% : %.2f%n ", vat);
+		System.out.println(dashes);
+
+		System.out.printf(" \t Bill Total:  \t %.2f%n", billTotal);
+		System.out.printf("\t Amount Paid: \t %.2f%n", amountPaid);
+		System.out.printf("\t Balance:   \t %.2f%n", ( amountPaid - billTotal));
+	
+		System.out.println(dashes);
+		System.out.println("  \t  THANKS FOR YOUR PATRONAGE");
+		System.out.println(dashes);
+
 	}	
 }
