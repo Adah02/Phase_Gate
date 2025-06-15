@@ -62,6 +62,7 @@ public class MenstrualCalculator {
 	} else {
 		firstSafePeriod = prevDay + 7;
 		}
+
 		LocalDate safePeriod = LocalDate.of(year, menstMonth, firstSafePeriod);
 
 	if ((nextMenst - 13) < 0){

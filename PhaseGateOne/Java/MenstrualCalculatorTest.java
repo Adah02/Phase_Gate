@@ -70,5 +70,6 @@ public class MenstrualCalculatorTest {
 	int month = 12;
 	String expected = "2026-01-10";
 	assertEquals(expected, quiz.ovulationDate(day, month));
+
 	}
 }
