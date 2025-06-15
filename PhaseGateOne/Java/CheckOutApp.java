@@ -1,5 +1,8 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Date;
+import java.time.LocalTime;
+import java.text.SimpleDateFormat;
 public class CheckOutApp {
 
 	public static double valueAddedTax(ArrayList<Double> productPrice, ArrayList<Double> productQuantity){
@@ -49,7 +52,6 @@ public class CheckOutApp {
 		totalPurchase += (productPrice.get(index) * productQuantity.get(index));
 		}
 		double customersBalance = (amountPaid - totalPurchase);
-
 	return customersBalance;
 	}
 	
@@ -64,5 +66,21 @@ public class CheckOutApp {
 
 	return StoreDetails;
 	}
+
+	public static String currentDateAndTime(){
+
+	Date currentDate = new Date();
+
+	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+	SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss aa");
+
+	String dateForNow = dateFormat.format(currentDate);
+
+	String timForNow = timeFormat.format(currentDate);
+
+	return dateForNow + " " + timForNow;
+	}
+
 
 }

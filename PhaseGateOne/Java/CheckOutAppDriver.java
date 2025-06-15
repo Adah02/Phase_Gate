@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 public class CheckOutAppDriver {
 
 	public static void main(String[] args){
@@ -80,35 +81,31 @@ public class CheckOutAppDriver {
 		""";
 
 	String cashiersName = "";
-	System.out.println(cashiers);
+	System.out.println("\n" + cashiers);
 
 	boolean cashier = true;
 	while(cashier == true){
 
 	System.out.println("Select name of cashier on duty: ");
-	cashiersName = input.nextLine(); 
+	cashiersName = input.next(); 
 
 	switch(cashiersName){
 		case "1":{
 				cashiersName = "Sikiru I. J";
 				cashier = false;
-				break;
-			}
+			} break;
 		case "2":{
 				cashiersName = "Emmanuel  K. A";
 				cashier = false;
-				break;
-			}
+			} break;
 		case "3":{
 				cashiersName = "Eze-Kiel C. A";
 				cashier = false;
-				break;
-			}
+			} break;
 		case "4":{
 				cashiersName = "Olawole R. O";
 				cashier = false;
-				break;
-			}
+			} break;
 		default : {
 				cashier = true;
 			}
@@ -124,9 +121,9 @@ public class CheckOutAppDriver {
 		totalProductPrice.add(productPrice.get(index) * productQuantity.get(index));
 		}
 
-		System.out.println(dashes);
-		System.out.println(quiz.storeAddress());
-		System.out.println("Date: ");
+		System.out.println("\n" + dashes);
+		System.out.print(quiz.storeAddress());
+		System.out.println("Date: " + quiz.currentDateAndTime());
 		System.out.println("Cashier: " + cashiersName);
 		System.out.println("Customers Name: " +customersName);
 		System.out.println(dashes);
@@ -152,6 +149,7 @@ public class CheckOutAppDriver {
 		System.out.printf(" \t VAT@ 7.5%%:  %.2f%n", vat);
 
 		System.out.println(dashes);
+
 		double billTotal = (purchaseAmount + vat) - discount;
 		System.out.printf(" \t Bill Total: %.2f%n", billTotal);
 
@@ -164,9 +162,11 @@ public class CheckOutAppDriver {
 			System.out.println("How much did the customer pay? ");
 			double amountPaid = input.nextDouble(); 
 
-		System.out.println(dashes);
-		System.out.println(quiz.storeAddress());
-		System.out.println("Date: ");
+			double balance = ( amountPaid - billTotal);
+
+		System.out.println("\n" + dashes);
+		System.out.print(quiz.storeAddress());
+		System.out.println("Date: " + quiz.currentDateAndTime());
 		System.out.println("Cashier: " + cashiersName);
 		System.out.println("Customers Name: " +customersName);
 		System.out.println(dashes);
@@ -174,7 +174,7 @@ public class CheckOutAppDriver {
 		System.out.println(dashes);
 
 			for (int count = 0; count < productPrice.size(); count++ ){
-			System.out.printf("%15s \t%d\t%.2f \t%.2f%n", purchasedproducts.get(count), productQuantity.get(count), productPrice.get(count), totalProductPrice.get(count));
+			System.out.printf("%15s\t%d\t%.2f \t%.2f%n", purchasedproducts.get(count), productQuantity.get(count), productPrice.get(count), totalProductPrice.get(count));
 			}
 		System.out.println(dashes);
 		System.out.printf(" \t Sub-Total: %.2f%n", purchaseAmount);
@@ -184,8 +184,11 @@ public class CheckOutAppDriver {
 
 		System.out.printf(" \t Bill Total:  \t %.2f%n", billTotal);
 		System.out.printf("\t Amount Paid: \t %.2f%n", amountPaid);
-		System.out.printf("\t Balance:   \t %.2f%n", ( amountPaid - billTotal));
-	
+		if (balance < 0){
+			System.out.printf("\t Balance:   \t %.2f%n \t You still owe %.2f. Please, pay up%n", balance, (Math.abs(balance)));
+		} else {
+			System.out.printf("\t Balance:   \t %.2f%n", balance);
+			}
 		System.out.println(dashes);
 		System.out.println("  \t  THANKS FOR YOUR PATRONAGE");
 		System.out.println(dashes);
