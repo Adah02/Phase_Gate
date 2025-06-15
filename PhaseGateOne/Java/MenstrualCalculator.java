@@ -62,13 +62,12 @@ public class MenstrualCalculator {
 	} else {
 		firstSafePeriod = prevDay + 7;
 		}
-
 		LocalDate safePeriod = LocalDate.of(year, menstMonth, firstSafePeriod);
 
-	if ((nextMenst - 13) < 0){
-		lastSafePeriod = flowDate.lengthOfMonth() - Math.abs(nextMenst - 13);
+	if ((nextMenst - 12) < 0){
+		lastSafePeriod = flowDate.lengthOfMonth() - Math.abs(nextMenst - 12);
 	} else {
-			lastSafePeriod = nextMenst - 13;
+			lastSafePeriod = nextMenst - 12;
 		}
 		LocalDate nextSafePeriod = LocalDate.of(year, menstMonth, lastSafePeriod);
 		String safePeriodConvert = safePeriod.toString();
@@ -101,6 +100,21 @@ public class MenstrualCalculator {
 
 	Scanner input = new Scanner(System.in);
 
+	String periodCalculator = """
+
+		Period Calculator:
+		Predict your next cycle
+
+		Being able to predict your
+		next period can save you 
+		lots of trouble and help you 
+		understand your menstrual 
+		cycle.
+
+		Predict today, Secure tomorrow...
+		""";
+	System.out.println(periodCalculator);
+
 	System.out.print("Enter Month of last Menstruation: ");
 	int menstMonth = input.nextInt();
 
@@ -114,7 +128,8 @@ public class MenstrualCalculator {
 	System.out.println("Date of previous flow is " + previousFlowDate(menstMonth, prevDay));
 	System.out.println("Next ovulation is " + ovulationDate (prevDay, menstMonth));
 	System.out.println("Date of next menstruation is " + nextMenstCycle(menstMonth, prevDay, nextMenst));
-	System.out.printf("Safe period is from %s to %s to %s%n", previousFlowDate(menstMonth, prevDay), safePeriod(prevDay, menstMonth, nextMenst), nextMenstCycle(menstMonth, prevDay, nextMenst));
+	System.out.printf("Safe period is from %s to %s to %s respectively.%n", previousFlowDate(menstMonth, prevDay), safePeriod(prevDay, menstMonth, nextMenst), nextMenstCycle(menstMonth, prevDay, nextMenst));
+
 	}
 }
 
