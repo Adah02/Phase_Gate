@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class CreditCardValidator {
 
 	public static String cardValidity(String myCardNumber){
@@ -87,6 +88,23 @@ public class CreditCardValidator {
 	int digitLength = cardNumber.length();
 
 	return digitLength;
+	}
+
+
+
+	public static void main(String[] args){
+
+	Scanner input = new Scanner(System.in);
+	
+	System.out.print("Enter card number to verify: ");
+	String myCardNumber = input.nextLine();
+
+	for (int index = 0; index < 42; index++){ System.out.print("*"); } System.out.println();
+	System.out.println("** Credit Card Type: " + creditCardType(myCardNumber));
+	System.out.println("** Credit Card Number: " + myCardNumber(myCardNumber));
+	System.out.println("** Credit Card Digit Length: " + cardNumberLength(myCardNumber));
+	System.out.println("** Credit Card Validity Status: " + validityStatus(myCardNumber));
+	for (int index = 0; index < 42; index++){ System.out.print("*"); } System.out.println();
 	}
 	
 }
