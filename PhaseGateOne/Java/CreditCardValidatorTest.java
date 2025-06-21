@@ -5,7 +5,7 @@ public class CreditCardValidatorTest {
 	CreditCardValidator quiz = new CreditCardValidator();
 
 	@Test
-	public void checkForCardValidity() {
+	public void checkForValidCard() {
 
 	String check = "4773437473784656";
 	String expected = "Valid";
@@ -58,6 +58,16 @@ public class CreditCardValidatorTest {
 
 	assertEquals(expected, quiz.validityStatus(check));
 	}
+
+	@Test
+	public void checkForValidDiscoverCardValidityStatus() {
+
+	String check = "655 676 879 989 89";
+	String expected = "Valid";
+
+	assertEquals(expected, quiz.validityStatus(check));
+	}
+
 
 	@Test
 	public void discoverCardCheck() {
