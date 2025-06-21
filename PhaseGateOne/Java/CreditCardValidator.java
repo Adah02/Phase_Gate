@@ -66,7 +66,8 @@ public class CreditCardValidator {
 	}
 
 	public static String validityStatus(String myCardNumber){
-	int sum = 0;  int sumOfOdd = 0;
+	int sumOfEven = 0;  
+	int sumOfOdd = 0;
 	String cardNumber = myCardNumber.replaceAll("\\s+", "");
 
 	String validator = "";
@@ -81,15 +82,15 @@ public class CreditCardValidator {
 				if (multiple > 9){
 					int firstDigit = multiple / 10;  
 					int secondDigit =  multiple % 10;
-					sum += (firstDigit + secondDigit);	
+					sumOfEven += (firstDigit + secondDigit);	
 				} else {
-					sum += multiple;
+					sumOfEven += multiple;
 				}
 			}
 		} catch (NumberFormatException e){
 			validator = "Invalid card format";
 		}
-	int total = sum + sumOfOdd;
+	int total = sumOfEven + sumOfOdd;
 
 	validator = (total % 10 == 0 && total != 0) ? "Valid" : "Invalid";
 	return validator;
