@@ -1,11 +1,15 @@
+import java.util.Scanner;
 public class CreditCardValidator {
 
 	public static String cardValidity(String myCardNumber){
+
 	String cardNumber = myCardNumber.replaceAll("\\s+", "");
 
 	boolean cardValid = false;
+
 		if (cardNumber.charAt(0) > '2' && cardNumber.charAt(0) < '7'){
 			if (cardNumber.length() >= 13 && cardNumber.length() <= 16){
+
 				if (cardNumber.charAt(0) == '3' && cardNumber.charAt(1) != '7'){
 				cardValid = false;
 				}else {
@@ -25,6 +29,7 @@ public class CreditCardValidator {
 	String myNumber = myCardNumber.replaceAll("\\s+", "");
 
 	if (myNumber.length() <13 || myNumber.length() > 16) myNumber = "Invalid";
+
 	for (int index = 0; index < myNumber.length(); index++){
 		if (myNumber.charAt(index) < '0' || myNumber.charAt(index) > '9' &&  myNumber.charAt(index) != ' '){
 			myNumber = "Invalid";
@@ -61,25 +66,35 @@ public class CreditCardValidator {
 	}
 
 	public static String validityStatus(String myCardNumber){
-	int sum = 0;  int sumOdd = 0;
+	int sum = 0;  int sumOfOdd = 0;
 	String cardNumber = myCardNumber.replaceAll("\\s+", "");
 
-	for (int index = cardNumber.length() - 1; index >= 0; index--){
-		sumOdd += Integer.parseInt(String.valueOf(cardNumber.charAt(index)));
+	String validator = "";
+
+	try{
+		for (int index = cardNumber.length() - 1; index >= 0; index--){
+				sumOfOdd += Integer.parseInt(String.valueOf(cardNumber.charAt(index)));
 	
-		if (index > 0){ index -= 1; } else { break; }
-		int integerValue = Integer.parseInt(String.valueOf(cardNumber.charAt(index))) * 2;
-			if (integerValue > 9){
-				int firstDigit = integerValue / 10;  int secondDigit =  integerValue % 10;
-				sum += (firstDigit + secondDigit);	
-			} else{
-				sum += integerValue;
+				if (index > 0){ index -= 1; }
+				int multiple = Integer.parseInt(String.valueOf(cardNumber.charAt(index))) * 2;
+
+				if (multiple > 9){
+					int firstDigit = multiple / 10;  
+					int secondDigit =  multiple % 10;
+					sum += (firstDigit + secondDigit);	
+				} else {
+					sum += multiple;
+				}
 			}
+		} catch (NumberFormatException e){
+			validator = "Invalid card format";
 		}
-	int total = sum + sumOdd;
-	String validator = (total % 10 == 0) ? "Valid" : "Invalid";
+	int total = sum + sumOfOdd;
+
+	validator = (total % 10 == 0 && total != 0) ? "Valid" : "Invalid";
 	return validator;
 	}
+
 
 	public static int cardNumberLength(String myCardNumber){
 	String cardNumber = myCardNumber.replaceAll("\\s+", "");
@@ -88,6 +103,25 @@ public class CreditCardValidator {
 
 	return digitLength;
 	}
+
+
+
+	public static void main(String[] args){
+
+	Scanner input = new Scanner(System.in);
 	
+	System.out.print("Enter card number to verify: ");
+	String myCardNumber = input.nextLine();
+
+	String stars = "";
+	for (int index = 0; index < 42; index++){  stars += "*"; } 
+	System.out.println(stars);
+
+	System.out.println("** Credit Card Type: " + creditCardType(myCardNumber));
+	System.out.println("** Credit Card Number: " + myCardNumber(myCardNumber));
+	System.out.println("** Credit Card Digit Length: " + cardNumberLength(myCardNumber));
+	System.out.println("** Credit Card Validity Status: " + validityStatus(myCardNumber));
+	System.out.println(stars);
+	}	
 }
 
