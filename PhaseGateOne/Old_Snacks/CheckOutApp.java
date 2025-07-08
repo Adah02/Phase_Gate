@@ -80,6 +80,4 @@ public class CheckOutApp {
 
 	return dateForNow + " " + timForNow;
 	}
-
-
 }
